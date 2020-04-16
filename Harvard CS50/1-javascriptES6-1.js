@@ -3,6 +3,23 @@
 //  Functions that refer to variables declared by parent function still have access to those variables
 //  Possible because of JS's scoping
 //  Because of closure, functions that are declared have access to their variables at the point of declaration
+//  "A closure is the combination of a function and the lexical environment within which that function was declared. 
+//  ... This environment consists of any local variables that were in-scope at the time the closure was CREATED"
+function makeAdder(x) {
+    return function(y) {
+        return x + y;
+    };
+}
+
+var add5 = makeAdder(5);
+var add10 = makeAdder(10);
+
+console.log(add5(2));  // 7
+console.log(add10(2)); // 12
+// add5 and add10 are both closures. They share the same function body definition, but store different lexical environments
+console.log("---------------")
+
+
 function makeFunctionArray(){
     const arr = []
 
