@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "p1",
-    "slug": "p1",
+    "name": "Study Timer",
+    "slug": "study-timer",
     "platforms": [
       "ios",
       "android",
@@ -16,7 +16,8 @@
       "backgroundColor": "#ffffff"
     },
     "androidNavigationBar": {
-      "visible": "sticky-immersive"
+      "visible": "sticky-immersive",
+      "barStyle": "dark-content"
     },
     "androidStatusBar": {
       "hidden": "true"
@@ -28,7 +29,14 @@
       "**/*"
     ],
     "ios": {
+      "bundleIdentifier": "com.CaioCoelho.studyTimer",
+      "buildNumber": "1.0.0",
       "supportsTablet": true
-    }
+    },
+    "android": {
+      "package": "com.CaioCoelho.studyTimer",
+      "versionCode": 1
+    },
+    "description": ""
   }
 }
