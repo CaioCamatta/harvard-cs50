@@ -224,3 +224,5 @@ export default class App extends React.Component{
 // PROPTYPES
 //  development tool that helps keep track of props
 //  helps document apis
+
+// Code is in react/app from now on
