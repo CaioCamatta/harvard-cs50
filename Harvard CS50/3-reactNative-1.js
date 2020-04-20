@@ -1,4 +1,4 @@
-/* --------------- Third lecture, including notes --------------- */
+/* --------------- Fourth lecture, including notes --------------- */
 // REACT NATIVE
 //  JS is bundled and minified. Multiple files > one/few files
 //  different threads communicate asinc through a bridge

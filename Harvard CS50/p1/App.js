@@ -13,14 +13,14 @@ const secondsToTime = seconds => {
   }
 }
 
-const WORK_DURATION = 15 // 25 min
-const BREAK_DURATION = 10 // 25 min
+const WORK_DURATION = 1500 // 25 min
+const BREAK_DURATION = 300 // 25 min
 
 export default class App extends React.Component {
   constructor(props){
     super(props)
     this.state = {
-      time_remaining: WORK_DURATION,
+      time_remaining: 15,
       status: 'initial', // 'initial' is the white screen shown before the user has interacted with anything
       active: false, // active means time is counting down
       break: false // break time (5min) is active
