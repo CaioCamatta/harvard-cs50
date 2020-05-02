@@ -309,3 +309,5 @@ MainStack.navigationOptions = {
 import Ionicons from "react-native-vector-icons/Ionicons";
 // Use it as a React component
 <Ionicons name="md-checkmark" size={25} color="#000" />
+
+
