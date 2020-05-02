@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "p2",
-    "slug": "p2",
+    "name": "Movie Finder",
+    "slug": "Movie-Finder",
     "platforms": [
       "ios",
       "android",
@@ -27,6 +27,10 @@
     "androidNavigationBar": {
       "visible": "sticky-immersive",
       "barStyle": "dark-content"
+    },
+    "android": {
+      "package": "com.CaioCoelho.movieFinder",
+      "versionCode": 1
     }
   }
 }
