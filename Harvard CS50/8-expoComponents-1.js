@@ -42,9 +42,87 @@ _getRandomContactAsync = async () =>{
 
 // COMPASS
 // Use <ImageBackground/> and <Image> for the needle.
-let {x,y,z} = v // pulls x,y,z out of v
+let {x,y,z} = v;// pulls x,y,z out of v
 
 // SENSOR COMBINATIONS (DEVICE MOTION)
 // You can use a combination of sensors to figure out the motion of the phone
 // Create a listener and instantiate it when component is mounted
 // Use setUpdateInterval to make it faster
+
+// MEDIA (audio, video, fonts)
+// check src 8
+
+// VIDEO
+<Expo.Video source={require="./assets/1.mp4"} style={{width:400, height:400}} resizeMode="cover" />;
+shouldPlay={true};
+
+// it's also important to set the audio mode, so the audio plays even if the phone is on silent
+_setAudioModeAsync = async () =>{
+    await Expo.Audio.setAudioModeAsync({
+        playsInSilentModeIOS: true,
+        //...etc
+    });
+}
+componentWillMount(){
+    this._setAudioModeAsync();
+}
+
+// Showing first frame after video is done: break video into it's own component
+onPlaybackStatusUpdate={(status) => {
+    if(status.didJustFinish){
+        ...where
+    }
+}};
+
+// FONTS
+state ={
+    fontIsReady = false
+}
+
+_loadFontsAsync = async () => {
+    // Can load from internet
+    Expo.Font.loadAsync({
+        fontName: require("./assets/fontName.ttf")
+    })
+}
+
+_setupFontAsync = async () => {
+    // Run all these functions before
+    await Promise.all([this._setAudioModeAsync(), this._loadFontsAsync])
+    this.setState({isReady: true});
+}
+
+componentDidMount(){
+    this._setupFontAsync();
+}
+
+render(){
+    // show this while font is loading
+    if(!this.state.fontIsReady){
+        return (<Expo.AppLoading />);
+    }
+}
+
+// PHOTOS
+// simple camera
+_launchCameraRollAsync = async () => {
+    let {status} = await Expo.Permissions.askAsync(Expo.Permissions.CAMERA_ROLL)
+    if(status !== 'granted'){
+        console.error("No permissions");
+        return;
+    }
+    let img = Expo.ImagePicker.launchImageLibraryAsync()
+
+    let flippedImage = Expo.ImageManupilator.manipulate(img.uri, [
+        {flip:...}// etc
+    ])
+    console.log(img)
+}
+
+// customizable camera
+{(this.state.cameraReady && (
+    <Expo.Camera style ={{
+        width:400,
+        height:400,  
+    }} type={Expo.Camera.Constants.back} />
+) || null)}
